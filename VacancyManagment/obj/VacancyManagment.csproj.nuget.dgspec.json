@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alazhdi\\source\\repos\\VacancyManagment\\VacancyManagment\\VacancyManagment.csproj": {}
+    "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alazhdi\\source\\repos\\VacancyManagment\\VacancyManagment\\VacancyManagment.csproj": {
+    "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alazhdi\\source\\repos\\VacancyManagment\\VacancyManagment\\VacancyManagment.csproj",
+        "projectUniqueName": "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj",
         "projectName": "VacancyManagment",
-        "projectPath": "C:\\Users\\alazhdi\\source\\repos\\VacancyManagment\\VacancyManagment\\VacancyManagment.csproj",
-        "packagesPath": "C:\\Users\\alazhdi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alazhdi\\source\\repos\\VacancyManagment\\VacancyManagment\\obj\\",
+        "projectPath": "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj",
+        "packagesPath": "C:\\Users\\alanaev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alazhdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alanaev\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
