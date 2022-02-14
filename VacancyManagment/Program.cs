@@ -3,12 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using VacancyManagment.DTO;
 using VacancyManagment.Models;
+using VacancyManagment.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 //var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
-//builder.Services.AddControllers();
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,7 +22,10 @@ builder.Services.AddDbContext<VacancyCadidatesContext>(options =>
 
 });
 
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 var app = builder.Build();
+app.MapControllerRoute(name: "default", pattern: "{controller}/{action}/{id?}");
+
 
 
 app.MapGet("/vacancies", async ([FromServices] VacancyCadidatesContext context) =>
@@ -70,6 +74,7 @@ app.MapDelete("/vacancies/{id}",
         return Results.NotFound();
     });
 
+//upload file
 
 
 // Configure the HTTP request pipeline.
