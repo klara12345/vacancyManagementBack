@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using VacancyManagment.DTO;
 using VacancyManagment.Models;
 using VacancyManagment.Services;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace VacancyManagment.Controller
 {
@@ -11,9 +15,12 @@ namespace VacancyManagment.Controller
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
-        public AuthController(IAuthRepository repo)
+        private readonly IConfiguration _config;
+        public AuthController(IAuthRepository repo, IConfiguration config)
         {
             _repo = repo;
+            _config = config;
+
         }
         [HttpPost]
         [Route("register")]//<host>/api/auth/register
@@ -47,6 +54,32 @@ namespace VacancyManagment.Controller
             var createUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
             return StatusCode(201);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDTO userForRegisterDto)
+        {
+            var userFromRepo = await _repo.Login(userForRegisterDto.Email.ToLower(), userForRegisterDto.Password);
+            if (userFromRepo == null) //User login failed
+                return Unauthorized();
+
+            //generate token
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_config.GetSection("AppSettings:Token").Value);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]{
+                    new Claim(ClaimTypes.NameIdentifier,userFromRepo.IdUser.ToString()),
+                    new Claim(ClaimTypes.Name, userFromRepo.Email)
+                }),
+                Expires = DateTime.Now.AddDays(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+
+            return Ok(new { tokenString });
         }
        
     }

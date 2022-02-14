@@ -1,9 +1,13 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Configuration;
+using System.Text;
 using VacancyManagment.DTO;
 using VacancyManagment.Models;
 using VacancyManagment.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 //var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -23,6 +27,18 @@ builder.Services.AddDbContext<VacancyCadidatesContext>(options =>
 });
 
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
+//var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
+//    options.TokenValidationParameters = new TokenValidationParameters
+//    {
+//        ValidateIssuerSigningKey = true,
+//        IssuerSigningKey = new SymmetricSecurityKey(key),
+//        ValidateIssuer = false,
+//        ValidateAudience = false
+//    };
+//});
+
 var app = builder.Build();
 app.MapControllerRoute(name: "default", pattern: "{controller}/{action}/{id?}");
 
@@ -74,6 +90,10 @@ app.MapDelete("/vacancies/{id}",
         return Results.NotFound();
     });
 
+//
+
+
+
 //upload file
 
 
@@ -83,7 +103,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.Run();
 
