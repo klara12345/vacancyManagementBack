@@ -55,7 +55,7 @@ namespace VacancyManagment.Controller
 
             return StatusCode(201);
         }
-
+       
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO userForRegisterDto)
         {
