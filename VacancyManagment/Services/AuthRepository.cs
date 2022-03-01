@@ -17,8 +17,8 @@ namespace VacancyManagment.Services
             var user = await _context.VacancyUsers.FirstOrDefaultAsync(x => x.Email == email); //Get user from database.
             if (user == null)
                 return null; // User does not exist.
-            //if (!VerifyPassword(password, user.Password, user.Salt.ToString() ))
-            //    return null;
+            //if (!VerifyPassword(password, user.Password,user.Salt))
+            //   return null;
 
             return user;
         }
