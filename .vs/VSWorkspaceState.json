@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\VacancyManagment"
+    "\\VacancyManagment",
+    "\\VacancyManagment\\DTO"
   ],
-  "SelectedNode": "\\VacancyManagment.sln",
+  "SelectedNode": "\\VacancyManagment\\DTO\\RegisterDTO.cs",
   "PreviewInSolutionExplorer": false
 }

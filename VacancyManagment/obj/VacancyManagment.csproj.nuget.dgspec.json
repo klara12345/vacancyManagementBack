@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj": {}
+    "C:\\Users\\alazhdi\\source\\repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj": {
+    "C:\\Users\\alazhdi\\source\\repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj",
+        "projectUniqueName": "C:\\Users\\alazhdi\\source\\repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj",
         "projectName": "VacancyManagment",
-        "projectPath": "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj",
-        "packagesPath": "C:\\Users\\alanaev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alanaev\\Source\\Repos\\VacancyManagmentBackend\\VacancyManagment\\obj\\",
+        "projectPath": "C:\\Users\\alazhdi\\source\\repos\\VacancyManagmentBackend\\VacancyManagment\\VacancyManagment.csproj",
+        "packagesPath": "C:\\Users\\alazhdi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alazhdi\\source\\repos\\VacancyManagmentBackend\\VacancyManagment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\alanaev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alazhdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,19 +40,23 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.10.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

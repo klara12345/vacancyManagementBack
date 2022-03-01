@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 using VacancyManagment.DTO;
 using VacancyManagment.Models;
 using VacancyManagment.Services;
@@ -21,6 +20,8 @@ builder.Services.AddDbContext<VacancyCadidatesContext>(options =>
 
 
 });
+builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
+
 
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 var app = builder.Build();
