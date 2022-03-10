@@ -53,6 +53,8 @@ builder.Services.AddDbContext<VacancyCadidatesContext>(options =>
 
 
 });
+builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
+
 builder.Services.AddCors();
 
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
